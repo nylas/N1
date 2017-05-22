@@ -56,50 +56,16 @@ class AccountIMAPSettingsForm extends React.Component {
     this.props.onConnect();
   }
 
-  renderPortDropdown(protocol) {
+  renderPortField(protocol) {
     if (!["imap", "smtp"].includes(protocol)) {
       throw new Error(`Can't render port dropdown for protocol '${protocol}'`);
     }
     const {accountInfo, submitting, onFieldKeyPress, onFieldChange} = this.props;
+    let id = `${protocol}_port`;
+    return (
+      <FormField field={id} title={"Port"} {...this.props} />
+    )
 
-    if (protocol === "imap") {
-      return (
-        <span>
-          <label htmlFor="imap_port">Port:</label>
-          <select
-            id="imap_port"
-            tabIndex={0}
-            value={accountInfo.imap_port}
-            disabled={submitting}
-            onKeyPress={onFieldKeyPress}
-            onChange={onFieldChange}
-          >
-            <option value="143" key="143">143</option>
-            <option value="993" key="993">993</option>
-          </select>
-        </span>
-      )
-    }
-    if (protocol === "smtp") {
-      return (
-        <span>
-          <label htmlFor="smtp_port">Port:</label>
-          <select
-            id="smtp_port"
-            tabIndex={0}
-            value={accountInfo.smtp_port}
-            disabled={submitting}
-            onKeyPress={onFieldKeyPress}
-            onChange={onFieldChange}
-          >
-            <option value="25" key="25">25</option>
-            <option value="465" key="465">465</option>
-            <option value="587" key="587">587</option>
-          </select>
-        </span>
-      )
-    }
-    return "";
   }
 
   renderSecurityDropdown(protocol) {
@@ -142,7 +108,7 @@ class AccountIMAPSettingsForm extends React.Component {
       <div>
         <FormField field={`${type}_host`} title={"Server"} {...this.props} />
         <div style={{textAlign: 'left'}}>
-          {this.renderPortDropdown(type)}
+          {this.renderPortField(type)}
           {this.renderSecurityDropdown(type)}
         </div>
         <FormField field={`${type}_username`} title={"Username"} {...this.props} />

@@ -2,7 +2,7 @@
 **An dark sidebar theme for [Nylas Mail](https://nylas.com/n1). Created by [Jamie Wilson](http://jamiewilson.io)**
 
 ## Activation
-Darkside comes [pre-installed](https://github.com/nylas/nylas-mail/tree/master/internal_packages/ui-darkside) with N1. To change themes, go to `Nylas Mail > Change Theme…` in the menu bar, then select `Darkside`. Learn more at [support.nylas.com](https://support.nylas.com/hc/en-us/articles/217557858-How-do-I-change-my-theme-).
+Darkside comes [pre-installed](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/ui-darkside) with N1. To change themes, go to `Nylas Mail > Change Theme…` in the menu bar, then select `Darkside`. Learn more at [support.nylas.com](https://support.nylas.com/hc/en-us/articles/217557858-How-do-I-change-my-theme-).
 
 ## Customization
 In order to customize Darkside, you'll need to manually install it.
@@ -10,7 +10,7 @@ In order to customize Darkside, you'll need to manually install it.
 #### 1. Download the `ui-darkside` folder.
 
 > **Download Option 1:**  
-> [Download just the 'ui-darkside' folder](https://kinolien.github.io/gitzip/?download=https://github.com/nylas/nylas-mail/tree/master/internal_packages/ui-darkside) thanks to the service [gitzip by @kinolien](https://kinolien.github.io/gitzip/).
+> [Download just the 'ui-darkside' folder](https://kinolien.github.io/gitzip/?download=https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/ui-darkside) thanks to the service [gitzip by @kinolien](https://kinolien.github.io/gitzip/).
   
 
 > **Download Option 2:**  

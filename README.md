@@ -27,11 +27,11 @@ The Nylas Mail user interface is styled using CSS, which means it's easy to modi
 
 
 #### Bundled Themes
-- [Dark](https://github.com/nylas/nylas-mail/tree/master/internal_packages/ui-dark)
-- [Darkside](https://github.com/nylas/nylas-mail/tree/master/internal_packages/ui-darkside) (designed by [Jamie Wilson](https://github.com/jamiewilson))
-- [Taiga](https://github.com/nylas/nylas-mail/tree/master/internal_packages/ui-taiga) (designed by [Noah Buscher](https://github.com/noahbuscher))
-- [Ubuntu](https://github.com/nylas/nylas-mail/tree/master/internal_packages/ui-ubuntu) (designed by [Ahmed Elhanafy](https://github.com/ahmedlhanafy))
-- [Less Is More](https://github.com/nylas/nylas-mail/tree/master/internal_packages/ui-less-is-more) (designed by [Alexander Adkins](https://github.com/P0WW0W))
+- [Dark](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/ui-dark)
+- [Darkside](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/ui-darkside) (designed by [Jamie Wilson](https://github.com/jamiewilson))
+- [Taiga](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/ui-taiga) (designed by [Noah Buscher](https://github.com/noahbuscher))
+- [Ubuntu](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/ui-ubuntu) (designed by [Ahmed Elhanafy](https://github.com/ahmedlhanafy))
+- [Less Is More](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/ui-less-is-more) (designed by [Alexander Adkins](https://github.com/P0WW0W))
 
 
 
@@ -81,13 +81,13 @@ We're working on building a plugin index that makes it super easy to add them to
 
 #### Bundled Plugins
 Great starting points for creating your own plugins!
-- [Translate](https://github.com/nylas/nylas-mail/tree/master/internal_packages/composer-translate)—Works with 10 languages
-- [Quick Replies](https://github.com/nylas/nylas-mail/tree/master/internal_packages/composer-templates)—Send emails faster with templates
-- [Emoji Keyboard](https://github.com/nylas/nylas-mail/tree/master/internal_packages/composer-emoji)—Insert emoji by typing a colon (:) followed by the name of an emoji symbol
-- [GitHub Sidebar Info](https://github.com/nylas/nylas-mail/tree/master/internal_packages/github-contact-card)
-- [View on GitHub](https://github.com/nylas/nylas-mail/tree/master/internal_packages/message-view-on-github)
-- [Personal Level Indicators](https://github.com/nylas/nylas-mail/tree/master/internal_packages/personal-level-indicators)
-- [Phishing Detection](https://github.com/nylas/nylas-mail/tree/master/internal_packages/phishing-detection)
+- [Translate](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/composer-translate)—Works with 10 languages
+- [Quick Replies](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/composer-templates)—Send emails faster with templates
+- [Emoji Keyboard](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/composer-emoji)—Insert emoji by typing a colon (:) followed by the name of an emoji symbol
+- [GitHub Sidebar Info](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/github-contact-card)
+- [View on GitHub](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/message-view-on-github)
+- [Personal Level Indicators](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/personal-level-indicators)
+- [Phishing Detection](https://github.com/nylas/nylas-mail/tree/master/packages/client-app/internal_packages/phishing-detection)
 
 #### Community Plugins
 

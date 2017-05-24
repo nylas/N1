@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-plus';
 import {BrowserWindow, dialog, app} from 'electron';
-import {atomicWriteFileSync} from '../fs-utils'
+import {atomicWriteFileSync, getMostRecentTimestampedFile} from '../fs-utils'
 
 let _ = require('underscore');
 _ = _.extend(_, require('../config-utils'));
@@ -16,7 +16,17 @@ export default class ConfigPersistenceManager {
 
     this.userWantsToPreserveErrors = false
     this.saveRetries = 0
-    this.configFilePath = path.join(this.configDirPath, 'config.json')
+    this.loadRetries = 0
+    this.configFilePath = getMostRecentTimestampedFile(this.configDirPath, 'config', 'json');
+    if(typeof this.configFilePath === "string") {
+      this.configFilePath = path.join(this.configDirPath, this.configFilePath);
+    }
+    if (typeof this.configFilePath === "undefined" || !fs.existsSync(this.configFilePath)) {
+      this.configFilePath = path.join(this.configDirPath, 'config.json'); // check legacy file
+      if (!fs.existsSync(this.configFilePath)) {
+        this.configFilePath = path.join(this.configDirPath, 'config.0.json'); // default file for creation
+      }
+    }
     this.settings = {};
 
     this.initializeConfigDirectory();
@@ -55,13 +65,14 @@ export default class ConfigPersistenceManager {
       type: 'error',
       message,
       detail,
-      buttons: ['Quit', 'Try Again', 'Reset Configuration'],
+      buttons: ['Quit', 'Try Again', 'Try Older Configuration', 'Reset Configuration'],
     });
 
     switch (clickedIndex) {
       case 0: return 'quit';
       case 1: return 'tryagain';
-      case 2: return 'reset';
+      case 2: return 'tryolder';
+      case 3: return 'reset';
       default:
         throw new Error('Unknown button clicked');
     }
@@ -93,6 +104,16 @@ export default class ConfigPersistenceManager {
         return;
       }
 
+      if (action === 'tryolder') {
+        this.loadRetries++;
+        this.configFilePath = getMostRecentTimestampedFile(this.configDirPath, 'config', 'json', this.loadRetries);
+        if(typeof this.configFilePath === "string") {
+          this.configFilePath = path.join(this.configDirPath, this.configFilePath);
+        }
+        this.load();
+        return;
+      }
+
       if (action !== 'reset') {
         throw new Error(`Unknown action: ${action}`);
       }
@@ -103,6 +124,7 @@ export default class ConfigPersistenceManager {
       this.writeTemplateConfigFile();
       this.load();
     }
+    this.loadRetries = 0;
   }
 
   _showSaveErrorDialog() {
@@ -124,7 +146,7 @@ export default class ConfigPersistenceManager {
     this.lastSaveTimestamp = Date.now();
 
     try {
-      atomicWriteFileSync(this.configFilePath, allSettingsJSON)
+      atomicWriteFileSync(this.configDirPath, 'config', 'json', allSettingsJSON)
       this.saveRetries = 0
     } catch (error) {
       if (this.saveRetries >= RETRY_SAVES) {

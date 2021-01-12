@@ -140,4 +140,4 @@ When you install packages, they're moved to ~/.nylas-mail/packages, and Nylas Ma
 There are several forks of Nylas Mail that you should check out. If you're just learning about Nylas Mail, it is highly recommended you use one of these instead.
 
  - [Mailspring](http://www.getmailspring.com/) - Significant rewrite by one of the original authors focused on performance and cloud plugins
- - [Nylas Mail Lives](https://github.com/nylas-mail-lives/nylas-mail) - Community effort to fix bugs and improve the client! (Seeking Maintainers)
+ - [Nylas Mail Lives](https://github.com/nylas-mail-lives/nylas-mail) - Community effort to fix bugs and improve the client! (Archived)
